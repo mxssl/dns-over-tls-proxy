@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  app:
+    image: dns-over-tls-proxy:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "0.0.0.0:5053:53/tcp"
+      - "0.0.0.0:5053:53/udp"
